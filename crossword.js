@@ -122,7 +122,7 @@ const downEl = document.getElementById("down-clues");
 const statusEl = document.getElementById("status");
 const messageEl = document.getElementById("message");
 
-gridEl.style.gridTemplateColumns = `repeat(${COLS}, minmax(0, 1fr))`;
+gridEl.style.gridTemplateColumns = `repeat(${COLS}, minmax(1.75rem, 1fr))`;
 
 function wordAt(row, col, direction) {
   return (
