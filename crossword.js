@@ -8,7 +8,7 @@ const WORDS = [
     clue: "The most expensive gift you ever got me",
   },
   {
-    number: 2,
+    number: 1,
     direction: "down",
     row: 0,
     col: 8,
@@ -16,7 +16,7 @@ const WORDS = [
     clue: "Where you took us for my 14th birthday",
   },
   {
-    number: 3,
+    number: 2,
     direction: "down",
     row: 0,
     col: 11,
@@ -24,15 +24,15 @@ const WORDS = [
     clue: "You can do this louder than anyone",
   },
   {
-    number: 4,
+    number: 3,
     direction: "down",
     row: 2,
     col: 3,
     answer: "COMPASSION",
-    clue: "One of the qualities I admire most about you (starts with a C, means you care a lot)",
+    clue: "One of the qualities I admire most about you (starts with a c, means you care a lot)",
   },
   {
-    number: 5,
+    number: 2,
     direction: "across",
     row: 2,
     col: 6,
@@ -40,7 +40,7 @@ const WORDS = [
     clue: "My favorite Christmas morning dish",
   },
   {
-    number: 5,
+    number: 4,
     direction: "down",
     row: 2,
     col: 6,
@@ -48,7 +48,7 @@ const WORDS = [
     clue: "Whose mess you cleaned up by fixing my car wiring",
   },
   {
-    number: 6,
+    number: 5,
     direction: "down",
     row: 4,
     col: 13,
@@ -56,7 +56,7 @@ const WORDS = [
     clue: "I love that you tear up when you watch these",
   },
   {
-    number: 7,
+    number: 6,
     direction: "down",
     row: 5,
     col: 10,
@@ -64,7 +64,7 @@ const WORDS = [
     clue: "A place where we had so many fun adventures",
   },
   {
-    number: 8,
+    number: 7,
     direction: "down",
     row: 6,
     col: 1,
@@ -72,7 +72,7 @@ const WORDS = [
     clue: "You taught me how to fix this",
   },
   {
-    number: 9,
+    number: 3,
     direction: "across",
     row: 8,
     col: 0,
@@ -135,9 +135,15 @@ function wordAt(row, col, direction) {
   );
 }
 
-function numberAt(row, col) {
-  const starts = WORDS.filter((word) => word.row === row && word.col === col);
-  return starts.length ? Math.min(...starts.map((word) => word.number)) : null;
+function numbersAt(row, col) {
+  return WORDS.filter((word) => word.row === row && word.col === col).map(
+    (word) => word.number
+  );
+}
+
+function numberLabel(row, col) {
+  const numbers = [...new Set(numbersAt(row, col))];
+  return numbers.length ? numbers.join("/") : null;
 }
 
 function renderGrid() {
@@ -152,11 +158,11 @@ function renderGrid() {
         cell.classList.add("cell--block");
         cell.setAttribute("aria-hidden", "true");
       } else {
-        const number = numberAt(row, col);
-        if (number) {
+        const label = numberLabel(row, col);
+        if (label) {
           const num = document.createElement("span");
           num.className = "cell__num";
-          num.textContent = String(number);
+          num.textContent = label;
           cell.appendChild(num);
         }
         const input = document.createElement("input");
@@ -176,7 +182,13 @@ function renderGrid() {
 }
 
 function renderClues() {
-  for (const word of WORDS) {
+  const ordered = [...WORDS].sort((a, b) => {
+    if (a.direction !== b.direction) {
+      return a.direction === "across" ? -1 : 1;
+    }
+    return a.number - b.number;
+  });
+  for (const word of ordered) {
     const item = document.createElement("li");
     const button = document.createElement("button");
     button.type = "button";
