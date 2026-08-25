@@ -29,7 +29,7 @@ const WORDS = [
     row: 2,
     col: 3,
     answer: "COMPASSION",
-    clue: "One of the qualities I admire most about you",
+    clue: "One of the qualities I admire most about you (starts with a C, means you care a lot)",
   },
   {
     number: 5,
@@ -77,7 +77,7 @@ const WORDS = [
     row: 8,
     col: 0,
     answer: "CRASHTESTCARSEAT",
-    clue: "One of the best toys you ever got Laura and me",
+    clue: "One of the best toys you ever got Laura and me (brought home from the lab at work)",
   },
 ];
 
