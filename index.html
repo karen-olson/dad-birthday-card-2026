@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy Birthday, Dad</title>
+    <meta
+      name="description"
+      content="A birthday card crossword for Dad — solve the puzzle to unlock a message."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__sky" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__brand">For Dad</p>
+        <h1 class="hero__title">Happy Birthday</h1>
+        <p class="hero__lede">
+          A little puzzle, made just for you. Solve it to unlock today’s note.
+        </p>
+        <a class="hero__cta" href="#crossword">Start the crossword</a>
+      </div>
+    </header>
+    <main>
+      <section id="crossword" class="puzzle" aria-labelledby="puzzle-heading">
+        <div class="puzzle__intro">
+          <h2 id="puzzle-heading">Dad Crossword</h2>
+          <p>
+            Click a square, type a letter, and use arrow keys to move. Check your
+            answers when you’re ready.
+          </p>
+        </div>
+        <div class="puzzle__layout">
+          <div class="puzzle__board-wrap">
+            <div
+              id="grid"
+              class="grid"
+              role="grid"
+              aria-label="Birthday crossword puzzle"
+            ></div>
+            <div class="puzzle__actions">
+              <button type="button" id="check-btn" class="btn">
+                Check answers
+              </button>
+              <button type="button" id="reset-btn" class="btn btn--ghost">
+                Reset
+              </button>
+              <p id="status" class="status" role="status" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="clues">
+            <div class="clues__col">
+              <h3>Across</h3>
+              <ol id="across-clues" class="clues__list"></ol>
+            </div>
+            <div class="clues__col">
+              <h3>Down</h3>
+              <ol id="down-clues" class="clues__list"></ol>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="message"
+        class="message"
+        hidden
+        aria-labelledby="message-heading"
+      >
+        <h2 id="message-heading">You solved it</h2>
+        <p class="message__body">
+          Dad — thanks for the advice, the bad jokes, and showing up every time
+          it counted. Hope this year is full of good coffee, long walks, and
+          whatever makes you happiest. Love you.
+        </p>
+        <p class="message__signoff">— Your kid</p>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Made with care for Dad’s birthday.</p>
+    </footer>
+    <script src="crossword.js"></script>
+  </body>
+</html>
