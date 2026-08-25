@@ -108,8 +108,7 @@ body {
 }
 
 .puzzle,
-.message,
-.footer {
+.message {
   width: min(1080px, calc(100% - 2rem));
   margin: 0 auto;
 }
@@ -345,10 +344,4 @@ body {
 .message__signoff {
   color: var(--gold);
   font-weight: 600;
-}
-
-.footer {
-  padding: 0 0 2.5rem;
-  color: var(--muted);
-  font-size: 0.95rem;
 }
