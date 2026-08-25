@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=8" />
+    <link rel="stylesheet" href="styles.css?v=9" />
   </head>
   <body>
     <header class="hero">
@@ -71,18 +71,25 @@
         hidden
         aria-labelledby="message-heading"
       >
-        <h2 id="message-heading">You solved it</h2>
-        <p class="message__body">Dear Dad,</p>
-        <p class="message__body">
-          Happy birthday! I hope you’ve been having a great time in California -
-          it’s been really heartwarming to see you enjoying your retirement era
-          so much! Thank you so much for all of the love, time, and cold hard
-          cash you’ve poured into me over the years. You’re a wonderful dad - I
-          couldn’t ask for any better. Here’s to another great year!
-        </p>
-        <p class="message__signoff">Love you, Karen</p>
+        <div class="message__solved">
+          <h2 id="message-heading">You solved it</h2>
+        </div>
+        <article class="message__card">
+          <p class="message__body">Dear Dad,</p>
+          <p class="message__body">
+            Happy birthday! I hope you’ve been having a great time in California -
+            it’s been really heartwarming to see you enjoying your retirement era
+            so much! Thank you so much for all of the love, time, and cold hard
+            cash you’ve poured into me over the years. You’re a wonderful dad - I
+            couldn’t ask for any better. Here’s to another great year!
+          </p>
+          <p class="message__signoff">
+            Love you,<br />
+            Karen
+          </p>
+        </article>
       </section>
     </main>
-    <script src="crossword.js?v=8"></script>
+    <script src="crossword.js?v=9"></script>
   </body>
 </html>
